@@ -10,7 +10,7 @@ public class JsonplaceholderBaseUrl {
 
     @Before
     public void setup() {
-        spec = new RequestSpecBuilder().setBaseUri("https://reqres.in").build();
+        spec = new RequestSpecBuilder().setBaseUri("https://jsonplaceholder.typicode.com").build();
     }
 
 }
