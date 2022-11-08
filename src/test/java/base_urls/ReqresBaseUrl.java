@@ -12,5 +12,4 @@ public class ReqresBaseUrl {
         spec = new RequestSpecBuilder().setBaseUri("https://reqres.in/api").build();
     }
 
-
 }

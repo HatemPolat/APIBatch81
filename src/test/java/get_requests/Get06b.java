@@ -57,7 +57,7 @@ public class Get06b extends ReqresBaseUrl {
 
 //        3)Print all ids greater than 3 on the console
 
-        List<Integer> ids = jsonPath.getList("data.findAll{it.id>3}.id");
+        List<Integer> ids = jsonPath.getList("data.findAll{it.id>3}.id");//groovy  language java temelli bir dildir
         System.out.println("ids = " + ids);
 
 //        Assert that there are 3 ids greater than 3

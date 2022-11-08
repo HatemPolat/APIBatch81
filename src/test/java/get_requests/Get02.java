@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
 
 
-public class Get02 {
+public class Get02  {
 
     /* Given
             https://restful-booker.herokuapp.com/booking/1
