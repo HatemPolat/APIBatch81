@@ -1,0 +1,5 @@
+ //De-Serialization: Json datayı Java objesine çevirme
+    //Serialization: Java objesini Json formatına çevirme.
+    //De-Serialization: Iki türlü yapacağız.
+    //Gson: Google tarafından üretilmiştir.
+    //Object Mapper: Daha popüler...

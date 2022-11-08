@@ -4,8 +4,8 @@ import base_urls.ReqresBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static io.restassured.RestAssured.*;
+import static org.junit.Assert.*;
 
 public class Get02b extends ReqresBaseUrl {
     /*
@@ -23,15 +23,14 @@ public class Get02b extends ReqresBaseUrl {
          Response body should be empty
   */
     @Test
-    public void get02(){
+    public void get01(){
 //Set the Url
         spec.pathParams("first","users","second",23);
 
 //Set The Expected Data
 
 //Send The Request and Get The Response
-        Response response = given().spec(spec).when().get("/{first}/{second}");
-        response.prettyPrint();
+      Response response=given().spec(spec).when().get("/{first}/{second}");
 
 //Do Assertion
 
