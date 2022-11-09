@@ -55,8 +55,10 @@ public class Get11 extends GORestBaseUrl {
                         "data.name", hasItems("Pres. Amarnath Dhawan", "Sujata Chaturvedi", "Navin Panicker"));
 
         //Kadın ve erkek sayılarını karşılaştıralım.
+
         //1. Yol:
         List<String> genders = response.jsonPath().getList("data.gender");
+
         System.out.println(genders);
 
         int numOfFemale = 0;

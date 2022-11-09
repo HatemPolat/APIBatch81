@@ -1,1 +1,17 @@
-1
+1) API nedir ?
+Kullanici arayuzudur bizim herhangi bir database yada servera ulasmak icin kullandigimiz yoldur.
+
+2)API nasil calisir.
+API Http reguestleri kullanir
+3) API ile Web serves arasindaki fark nedir denildiyse
+Api internete ihtiyac duymadanda calisir fakatinda internet olmadan WEB serves olmaz
+
+4)SOAP ve REST ARASINDAKI FARK NEDIR?
+
+        SOAP                                                                       REST
+I)Soap reste gore yavastir ama en guvenli protokoldur       i)Soap a gore daha hizli calisan guvenli bir api protokoldur
+                                                                Http kullanir
+ii)Ara bellek okuyamazon                                   ii)Ara bellek okuyabilir.
+
+
+
