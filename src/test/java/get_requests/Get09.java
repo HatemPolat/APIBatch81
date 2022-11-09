@@ -8,58 +8,69 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class Get09 extends RestfulBaseUrl {
     /*
     Given
-        https://restful-booker.herokuapp.com/booking/91
+        https://restful-booker.herokuapp.com/booking/92
     When
         I send GET Request to the url
     Then
         Response body should be like that;
 {
-    "firstname": "Sally",
-    "lastname": "Brown",
+    "firstname": "Carlos",
+    "lastname": "Parchment",
     "totalprice": 111,
     "depositpaid": true,
     "bookingdates": {
-        "checkin": "2013-02-23",
-        "checkout": "2014-10-23"
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
     },
     "additionalneeds": "Breakfast"
 }
+
  */
-
-
-
     @Test
+    public void get09(){
+        //  1. Set the URL
+        spec.pathParams("first","booking","second",92);
 
-    public void get01(){
-        //Set the URL
-        spec.pathParams("first","booking","second",91);
+        //  2. SET THE EXPECTED DATA
 
-
-        //set the expected data
+        //i) ilk olarak inner JSON Map'e donusturulur.
         Map<String,String> bookingdataMap = new HashMap<>();
-        bookingdataMap.put("checkin","2013-02-23");
-        bookingdataMap.put("checkout","2014-10-23");
 
+        bookingdataMap.put("checkin","2018-01-01");
+        bookingdataMap.put("checkout","2019-01-01");
+
+        //ii) ikinci olarak outer JSON Map a cevrilir.
         Map<String,Object> expecteddata = new HashMap<>();
-        expecteddata.put("firstname","Sally");
-        expecteddata.put("lastname","Brown");
-        expecteddata.put("totalprice","111");
+
+        expecteddata.put("firstname","Carlos");
+        expecteddata.put("lastname","Parchment");
+        expecteddata.put("totalprice",111);
         expecteddata.put("depositpaid",true);
         expecteddata.put("bookingdates",bookingdataMap);
         expecteddata.put("additionalneeds","Breakfast");
         System.out.println(expecteddata);
 
-        //Get request the URL
+        //  3. Get request the URL
 
         Response response=given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
-        Map<String,Object> actualdataMap= new HashMap<>();
+        Map<String,Object> actualData=response.as(HashMap.class);
+            assertEquals(expecteddata.get("firstname"),actualData.get("firstname"));
+            assertEquals(expecteddata.get("lastname"),actualData.get("lastname"));
+            assertEquals(expecteddata.get("totalprice"),actualData.get("totalprice"));
+            assertEquals(expecteddata.get("depositpaid"),actualData.get("depositpaid"));
+            assertEquals(expecteddata.get("firstname"),actualData.get("firstname"));
+            assertEquals(expecteddata.get("bookingdates.checkin"),actualData.get("bookingdates.checkin"));
+            assertEquals(bookingdataMap.get("checkin"),((Map)(actualData.get("bookingdates"))).get("checkin"));
+            assertEquals(bookingdataMap.get("checkout"),((Map)(actualData.get("bookingdates"))).get("checkout"));
+
 
 
 
